@@ -26,16 +26,19 @@ const EventList = () => {
         <div>
             <h2>Today's Events</h2>
             <ul>
-                {todayEvents.map(event => (
-                    <li key={event.id}>
-                        <h3>{event.title}</h3>
-                        <p><strong>Description:</strong> {event.description}</p>
-                        <p><strong>Date:</strong> {event.date}</p>
-                        {event.time && <p><strong>Time:</strong> {event.time}</p>}
-                        {event.location && <p><strong>Location:</strong> {event.location}</p>}
-                        <hr />
-                    </li>
-                ))}
+                {todayEvents.length === 0 ? (
+                    <div className="no-events">No events available</div>
+                ) :
+                    (todayEvents.map(event => (
+                        <li key={event.id}>
+                            <h3>{event.title}</h3>
+                            <p><strong>Description:</strong> {event.description}</p>
+                            <p><strong>Date:</strong> {event.date}</p>
+                            {event.time && <p><strong>Time:</strong> {event.time}</p>}
+                            {event.location && <p><strong>Location:</strong> {event.location}</p>}
+                            <hr />
+                        </li>
+                    )))}
             </ul>
             <h2>Future Events</h2>
             <ul>
